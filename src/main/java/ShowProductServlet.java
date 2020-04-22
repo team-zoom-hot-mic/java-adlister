@@ -30,8 +30,8 @@ public class ShowProductServlet extends HttpServlet {
         Product product = productDao.findById(productId);
 
         // set the attribute "product" to the object we just created
-        req.setAttribute("product",product);
-        req.getRequestDispatcher("/")
+        req.setAttribute("product", product);
+        req.getRequestDispatcher("/products/product-show.jsp").forward(req,resp);
 
     }
 }
