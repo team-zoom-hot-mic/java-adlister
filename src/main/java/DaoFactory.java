@@ -1,10 +1,4 @@
-public class DaoFactory {
-    private static Ads adsDao;
+package PACKAGE_NAME;
 
-    public static Ads getAdsDao() {
-        if (adsDao == null) {
-            adsDao = new ListAdsDao();
-        }
-        return adsDao;
-    }
+public class DaoFactory {
 }
