@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Adlister Project
 
 This is the project that we will be going through in the latter part of the Java
@@ -55,3 +56,14 @@ For example:
 
     All of the tags that correspond to each exercise also have a tag suffixed
     with `-solution`
+=======
+# Finish Up your Adlister
+
+Follow the instructions and suggestions in [here](https://java.codeup.com/java-iii/finish-the-adlister)
+
+## Final branch
+
+Use this master branch as a base for your future features, this branch already has all the necessary code implemented up to the lesson on passwords including it's solution.
+
+You might have to change the default branch in your own fork so you can have the master branch as the the default and merge your contributions into it.
+>>>>>>> 89bdba8abb4eeb5dd0a05ce593729f08864bc4d4
