@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
+import controllers.Config;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,9 +18,9 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -55,12 +56,13 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
         );
     }
 
@@ -70,5 +72,23 @@ public class MySQLAdsDao implements Ads {
             ads.add(extractAd(rs));
         }
         return ads;
+    }
+
+
+    // creating method to retrieve single ad
+    public Ad singleAd(Long id) {
+
+        try {
+            String query = "Select * FROM ads where id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            ResultSet result = stmt.executeQuery();
+            return createAdsFromResults(result).get(0);
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting ad.", e);
+        }
+
     }
 }
