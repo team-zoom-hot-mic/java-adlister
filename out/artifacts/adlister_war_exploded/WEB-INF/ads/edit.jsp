@@ -14,7 +14,7 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-<form action="/editAd" method="POST">
+<form action="/ads/edit" method="POST">
     <h1>${ad.title}</h1>
     <h2>${ad.description}</h2>
 </form>

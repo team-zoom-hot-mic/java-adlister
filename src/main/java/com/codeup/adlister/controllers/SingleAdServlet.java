@@ -23,8 +23,8 @@ public class SingleAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Long adId =  Long.parseLong(request.getParameter("adId"));
-
         Ad singleAd = DaoFactory.getAdsDao().singleAd(adId);
+
         request.setAttribute("ad", singleAd);
         request.getRequestDispatcher("/WEB-INF/ads/single.jsp").forward(request, response);
     }
