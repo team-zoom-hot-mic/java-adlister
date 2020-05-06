@@ -6,7 +6,7 @@
     <title>Single Ad</title>
 
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="single" value="Single Ad"/>
+        <jsp:param name="Title" value="Single Ad"/>
     </jsp:include>
 
 </head>
