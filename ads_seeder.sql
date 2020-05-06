@@ -8,3 +8,8 @@ VALUES ('Super Nintendo', 'Get your game on with this old-school classic!', '1')
 
 INSERT INTO users (username, email, password)
 VALUES ('testname', 'test@yahoo.com', 'test123');
+
+INSERT INTO categories (title, description)
+VALUES
+    ('Game System', 'test'),
+    ('Job Posting', 'test');
