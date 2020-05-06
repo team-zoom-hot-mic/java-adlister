@@ -66,4 +66,9 @@ Follow the instructions and suggestions in [here](https://java.codeup.com/java-i
 Use this master branch as a base for your future features, this branch already has all the necessary code implemented up to the lesson on passwords including it's solution.
 
 You might have to change the default branch in your own fork so you can have the master branch as the the default and merge your contributions into it.
+<<<<<<< HEAD
 >>>>>>> 89bdba8abb4eeb5dd0a05ce593729f08864bc4d4
+=======
+
+Kaleb Test
+>>>>>>> b96952a162cdaa2e6c87ea0f2f6f1657b2fec6b4
