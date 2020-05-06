@@ -4,8 +4,11 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 import controllers.Config;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 20d0fefaf6b7c051cb55e0fe29b7fe76e5f77bfa
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {
@@ -16,14 +19,13 @@ public class MySQLUsersDao implements Users {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                 config.getUrl(),
-                config.getUser(),
+                config.getUsername(),
                 config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
         }
     }
-
 
     @Override
     public User findByUsername(String username) {
