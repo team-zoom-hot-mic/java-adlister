@@ -6,8 +6,6 @@ VALUES ('Super Nintendo', 'Get your game on with this old-school classic!', '1')
 ('Junior Java Developer Position', 'Minimum 7 years of experience required. You will be working in the scripting language for Java, JavaScript', '1'),
 ('Javascript Developer Needed', 'Must have strong Java skills', '1');
 
-INSERT INTO users (username, email, password)
-VALUES ('testname', 'test@yahoo.com', 'test123');
 
 INSERT INTO categories (title, description)
 VALUES
