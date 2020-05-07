@@ -6,6 +6,24 @@ public class Ad {
     private String title;
     private String description;
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    private String category;
+
+
+    public Ad(long id, long userId, String title, String description, String category) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.category = category;
+    }
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
         this.userId = userId;
@@ -13,11 +31,16 @@ public class Ad {
         this.description = description;
     }
 
-    public Ad(long userId, String title, String description) {
+    public Ad(long userId, String title, String description, String category) {
         this.userId = userId;
         this.title = title;
         this.description = description;
+        this.category = category;
+
     }
+
+
+
 
     public long getId() {
         return id;
@@ -46,6 +69,7 @@ public class Ad {
     public String getDescription() {
         return description;
     }
+
 
     public void setDescription(String description) {
         this.description = description;

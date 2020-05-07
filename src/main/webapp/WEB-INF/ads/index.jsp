@@ -12,7 +12,7 @@
 <div class="container">
     <h1>Here Are all the ads!</h1>
     <c:forEach var="ad" items="${ads}">
-        <form action="/singleAd" method="POST">
+        <form action="/ads/single" method="POST">
             <div class="col-md-6">
                 <button type="submit"><h2>${ad.title}</h2></button>
 

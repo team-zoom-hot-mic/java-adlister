@@ -16,9 +16,9 @@ public class MySQLAdsDao implements Ads {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
 
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
 
             );
         } catch (SQLException e) {
@@ -41,11 +41,13 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
+            String insertQuery = "INSERT INTO ads(user_id, title, description, category_id) VALUES (?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
             stmt.setString(3, ad.getDescription());
+            stmt.setString(4, ad.getCategory());
+
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -62,6 +64,7 @@ public class MySQLAdsDao implements Ads {
                 rs.getLong("user_id"),
                 rs.getString("title"),
                 rs.getString("description")
+
         );
     }
 
@@ -74,7 +77,7 @@ public class MySQLAdsDao implements Ads {
     }
 
 
-    // creating method to retrieve single ad
+    // method to retrieve single ad
     public Ad singleAd(Long id) {
 
         try {
@@ -89,5 +92,36 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error getting ad.", e);
         }
 
+    }
+
+    // method to retrieve all ads specific to a certain id
+    @Override
+    public List<Ad> searchByUserID(Long userId) {
+
+        try {
+            String query = "SELECT * FROM ads WHERE user_id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, userId);
+            ResultSet result = stmt.executeQuery();
+            return createAdsFromResults(result);
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding an ad by id.", e);
+        }
+    }
+
+    // method for editing ad
+    public void editAd(String title, String description, long id) {
+        String query = "UPDATE ads SET title = ?, description = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, title);
+            stmt.setString(2, description);
+            stmt.setLong(3, id);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating an ad.", e);
+        }
     }
 }
