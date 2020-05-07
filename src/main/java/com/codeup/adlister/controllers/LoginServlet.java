@@ -25,6 +25,8 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = DaoFactory.getUsersDao().findByUsername(username);
+        String referrer = request.getHeader("Referer");
+
 
         if (user == null) {
             response.sendRedirect("/login");
@@ -37,7 +39,7 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("user", user);
             request.getSession().setAttribute("isLoggedin", true);
 
-            response.sendRedirect("/profile");
+            response.sendRedirect(referrer); // Change to the previous servlet user was on
         } else {
             response.sendRedirect("/login");
         }
