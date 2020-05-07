@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface Ads {
@@ -11,4 +12,8 @@ public interface Ads {
     Long insert(Ad ad);
 
     Ad singleAd (Long id);
+
+    List<Ad> searchByUserID (Long id);
+
+    void editAd(String title, String description, long id);
 }
