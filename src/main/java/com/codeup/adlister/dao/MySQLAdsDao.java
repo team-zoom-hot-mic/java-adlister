@@ -16,9 +16,9 @@ public class MySQLAdsDao implements Ads {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
 
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
 
             );
         } catch (SQLException e) {
@@ -74,7 +74,7 @@ public class MySQLAdsDao implements Ads {
     }
 
 
-    // creating method to retrieve single ad
+    // method to retrieve single ad
     public Ad singleAd(Long id) {
 
         try {
@@ -91,19 +91,34 @@ public class MySQLAdsDao implements Ads {
 
     }
 
-    // creating method to retrieve all ads specific to a certain id
+    // method to retrieve all ads specific to a certain id
     @Override
     public List<Ad> searchByUserID(Long userId) {
 
         try {
-        String query = "SELECT * FROM ads WHERE user_id = ?";
+            String query = "SELECT * FROM ads WHERE user_id = ?";
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setLong(1, userId);
             ResultSet result = stmt.executeQuery();
             return createAdsFromResults(result);
 
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding an ad by id", e);
+            throw new RuntimeException("Error finding an ad by id.", e);
+        }
+    }
+
+    // method for editing ad
+    public void editAd(long id, String title, String description) {
+        String query = "UPDATE ads SET title = ?, description = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, title);
+            stmt.setString(2, description);
+            stmt.setLong(3, id);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating an ad.", e);
         }
     }
 }
