@@ -18,7 +18,10 @@
 
                     <!-- edit ad button -->
                     <form action="/ads/edit" method="POST">
-                        <button name="editAdId" value="${ad.id}">Edit Ad</button>
+                        <button name="id" value="${ad.id}">Edit Ad</button>
+                        <input type="hidden" name="user_id" value="${ad.userId}">
+                        <input type="hidden" name="title" value="${ad.title}">
+                        <input type="hidden" name="description" value="${ad.description}">
                     </form>
 
                     <!-- delete ad button -->
