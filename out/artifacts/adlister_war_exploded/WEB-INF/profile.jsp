@@ -16,15 +16,12 @@
                     <h2>${ad.title}</h2>
                     <h2>${ad.description}</h2>
 
-                    <!-- edit ad button -->
-                    <form action="/ads/edit" method="POST">
-                        <button name="id" value="${ad.id}">Edit Ad</button>
-                        <input type="hidden" name="user_id" value="${ad.userId}">
-                        <input type="hidden" name="title" value="${ad.title}">
-                        <input type="hidden" name="description" value="${ad.description}">
+                    <!-- edit ad form -->
+                    <form action="/ads/edit" method="GET">
+                        <button name="editAdId" value="${ad.id}">Edit Ad</button>
                     </form>
 
-                    <!-- delete ad button -->
+                    <!-- delete ad form -->
                     <form action="/ads/delete" method="POST">
                         <button name="deleteAdId" value="${ad.id}">Delete Ad</button>
                     </form>
