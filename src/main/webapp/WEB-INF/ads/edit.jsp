@@ -15,6 +15,8 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
 <form action="/ads/update" method="POST">
+        <input type="hidden" name="id" value="${ad.id}">
+        <input type="hidden" name="user_id" value="${ad.userId}">
 
     <!-- Edit Title -->
     <div class="form-group">

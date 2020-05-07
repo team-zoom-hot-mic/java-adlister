@@ -15,12 +15,12 @@ public class EditAdServlet extends HttpServlet {
 
         // is the below necessary?
         Long adId = (Long) request.getSession().getAttribute("id");
-        String title = (String) request.getSession().getAttribute("title");
-        String description = (String) request.getSession().getAttribute("description");
-        Long userId = (Long) request.getSession().getAttribute("user_id");
-        System.out.println(userId);
+//        String title = (String) request.getSession().getAttribute("title");
+//        String description = (String) request.getSession().getAttribute("description");
+//        Long userId = (Long) request.getSession().getAttribute("user_id");
+//        System.out.println(userId);
 
-        request.setAttribute("ad", DaoFactory.getAdsDao().searchByUserID(userId).get(0));
+        request.setAttribute("ad", DaoFactory.getAdsDao().singleAd(adId));
         request.getRequestDispatcher("/WEB-INF/ads/edit.jsp").forward(request, response);
 
 
