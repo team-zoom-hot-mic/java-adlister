@@ -18,4 +18,8 @@ public interface Ads {
     void editAd(String title, String description, Long id);
 
     void deleteAd(long id);
+
+    List<Ad> searchAdByTitle(String title);
+
+
 }
