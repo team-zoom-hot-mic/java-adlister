@@ -8,6 +8,12 @@
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
         <ul id="nav" class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+                <form class="navbar-form" action="/ads/search" method="get">
+                    <label for="search">Search:</label>
+                    <input id="search" name="search" class="form-control" type="text" placeholder="Search Ads">
+                </form>
+            </li>
             <c:choose>
             <c:when test="${!sessionScope.containsKey('user')}">
                 <!--if user is not logged in-->
