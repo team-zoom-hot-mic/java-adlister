@@ -14,7 +14,7 @@
     <c:forEach var="ad" items="${ads}">
         <form action="/ads/single" method="POST">
             <div class="col-md-6">
-                <button type="submit"><h2>${ad.title}</h2></button>
+                <button type="submit" class="btn btn-link"><h2>${ad.title}</h2></button>
 
                 <input type="text" style="display: none" name="adId" value=${ad.id}>
 

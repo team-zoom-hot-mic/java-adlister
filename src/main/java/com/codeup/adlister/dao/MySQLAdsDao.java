@@ -1,5 +1,6 @@
 package com.codeup.adlister.dao;
 
+import com.cedarsoftware.util.io.JsonWriter;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 import controllers.Config;
@@ -41,7 +42,7 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            String insertQuery = "INSERT INTO ads(user_id, title, description, category_id) VALUES (?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO ads(user_id, title, description, multiCategories) VALUES (?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());

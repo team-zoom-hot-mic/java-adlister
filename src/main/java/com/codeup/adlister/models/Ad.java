@@ -17,6 +17,7 @@ public class Ad {
     private String category;
 
 
+
     public Ad(long id, long userId, String title, String description, String category) {
         this.id = id;
         this.userId = userId;
