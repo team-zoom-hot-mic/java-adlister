@@ -34,6 +34,8 @@
         <div class="form-group">
             <label for="categoryTwo">Secondary Category</label>
             <select id="categoryTwo" name="categoryTwo" class="form-control">
+                <option name="secondary" value=""></option>
+
                 <c:forEach var="category" items="${categories}">
                     <option name="secondary" value="${category.title}">${category.title}</option>
                 </c:forEach>

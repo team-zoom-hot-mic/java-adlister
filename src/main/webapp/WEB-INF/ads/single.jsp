@@ -12,9 +12,9 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
+<div class="container">
 <h1>${ad.title}</h1>
-<h2>${ad.description}</h2>
-
+<p>${ad.description}</p>
+</div>
 </body>
 </html>
